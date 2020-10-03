@@ -1,0 +1,69 @@
+.panier img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.entete {
+  background-color: #4f3454;
+}
+
+.listeInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#afficheCommande div p {
+  width: 50%;
+}
+
+#afficheCommande div {
+  display: inline-block;
+  width: 100%;
+}
+
+#alertInactive {
+  display: none;
+}
+
+/*#alertActive {
+  display: block;
+}*/
+/*#email {
+  &:focus {
+    &:invalid {
+      background: $cd-danger;
+      border: 2px solid $cd-danger;
+      color: $cd-txt--invalid;
+    }
+  }
+}*/
+/*.form {
+  &__group {
+    & input {
+      border: 2px solid $cd-box;
+      border-radius: 100rem;
+      color: $cd-txt;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.5rem;
+      outline: none;
+      padding: 0.5rem 1.5rem;
+      width: 100%;
+      transition: background-color 500ms;
+      &:focus {
+        border: 2px solid $cd-txt;
+      }
+      &:not(:focus):invalid {
+        background-color: $cd-danger;
+        border: 2px solid $cd-danger;
+        color: $cd-txt--invalid;
+      }
+    }
+  }
+}*/
+/*# sourceMappingURL=style2.css.map */

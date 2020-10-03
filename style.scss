@@ -1,0 +1,296 @@
+$color: #f3e9f1;
+$colorText: blueviolet;
+$taille1: 20px;
+$taille2: 20px;
+body,
+html {
+  width: 100%;
+  height: 50%;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+}
+header {
+  margin-left: 9em;
+  margin-right: 9em;
+}
+#pagecontent {
+  margin: auto;
+  overflow: hidden;
+}
+.entete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $color;
+}
+a,
+.menu,
+.email,
+.acceuil,
+.articles {
+  text-decoration: none;
+  color: $colorText;
+  font-weight: bold;
+}
+.panier img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.bouton_bas {
+  display: flex;
+  //justify-content: space-around;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+/*input {
+  background-color: white;
+  color: $colorText;
+  font-size: 1.5em;
+  border-color: $colorText;
+  box-shadow: 0 8px 16px 0 grey;
+}*/
+#monBoutton {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 grey;
+  text-decoration: none;
+  font-size: 1.5em;
+  border-color: #007bff;
+}
+#monBoutton:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  width: 60%;
+  margin: auto;
+}
+.finaliser1 {
+  margin-bottom: 2em;
+}
+.listeInput {
+  display: flex;
+  flex-direction: column;
+}
+.finaliser2 {
+  display: flex;
+  margin: auto;
+}
+h2 {
+  color: $colorText;
+}
+.defile :hover {
+  color: #2d0249;
+}
+.defile {
+  display: flex;
+  color: $colorText;
+  justify-content: space-around;
+}
+a {
+  font-size: 1.5em;
+  padding-top: 20px;
+}
+#nosArticles,
+#blocArticle {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: $colorText;
+}
+.menu :hover {
+  background-color: $colorText;
+  color: white;
+  text-decoration: none;
+}
+/*.menu :focus /* Quand le visiteur sélectionne le lien  {
+  background-color: blueviolet;
+  color: white;
+}*/
+li {
+  margin: 10px;
+  list-style: none;
+  font-size: $taille2;
+  color: $colorText;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  padding-top: 4em;
+  margin: 6px;
+}
+h1,
+h2 {
+  text-align: center;
+}
+p {
+  text-align: center;
+  margin: 2em;
+  font-size: $taille1;
+}
+#imagesCam {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+  align-items: center;
+}
+#blocArticles {
+  margin: 2em;
+}
+#nomImage {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  font-size: 3em;
+}
+#imgArticle img {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  //padding: 1em;
+  margin: auto;
+  box-shadow: 0 0 15px #666666;
+}
+#blocArticle img {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 50%;
+  padding: 1em;
+  margin: auto;
+  box-shadow: 0 0 15px #666666;
+}
+#element img {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  box-shadow: 0 0 15px #666666;
+  margin: 1em;
+  justify-content: center;
+}
+footer {
+  justify-content: space-between;
+
+  color: $colorText;
+}
+
+$number_of_images: 5;
+// $animation_duration -
+$animation_duration: 40s;
+
+@mixin css3($property, $value) {
+  @each $prefix in -webkit-, "" {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+@mixin maintain-aspect-ratio($ratio-or-width, $height: null) {
+  $padding: if(
+    $height,
+    percentage($height / $ratio-or-width),
+    percentage(1 / $ratio-or-width)
+  );
+  &:before {
+    content: "";
+    float: left;
+    padding-bottom: $padding;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin carousel_slideshow($number_of_images: 5, $animation_duration: 40s) {
+  overflow: hidden;
+  .carousel-container {
+    width: 100%;
+    @include maintain-aspect-ratio(960, 540);
+    position: relative;
+    z-index: -5; // hack for Android default browser
+    @include css3(animation-name, carousel_animation);
+    @include css3(animation-duration, $animation_duration);
+    @include css3(animation-timing-function, linear);
+    @include css3(animation-delay, 0s);
+    @include css3(animation-iteration-count, infinite);
+    @include css3(animation-fill-mode, forwards);
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @for $image_index from 1 through $number_of_images {
+        &.carousel-image-0#{ $image_index } {
+          @include css3(
+            transform,
+            translate3d(#{($image_index - 1) * 100%}, 0, 0)
+          );
+        }
+      }
+      &.carousel-image-extra {
+        @include css3(
+          transform,
+          translate3d(#{$number_of_images * 100%}, 0, 0)
+        );
+      }
+    }
+  }
+}
+
+@-webkit-keyframes carousel_animation {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(#{- $number_of_images * 100%}, 0, 0);
+  }
+}
+@keyframes carousel_animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(#{- $number_of_images * 100%}, 0, 0);
+  }
+}
+
+//----------------------------------------------------------------------
+//
+// CSS
+//
+//----------------------------------------------------------------------
+
+.carousel-wrapper {
+  width: 75%;
+  height: 75%;
+  box-shadow: 0 0 15px #666666;
+  margin: 0 auto;
+  overflow: hidden;
+  @include carousel_slideshow($number_of_images, $animation_duration);
+}
+/*#element img {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  padding: 1em;
+  margin: auto;
+  box-shadow: 0 0 15px #f7f7f7;
+  margin: 0 auto;
+  overflow: hidden;
+  @include carousel_slideshow($number_of_images, $animation_duration);
+}*/
