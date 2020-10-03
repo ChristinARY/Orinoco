@@ -1,0 +1,222 @@
+Premier code JavaScript
+
+
+
+
+
+const element = document.getElementById('parent');
+
+const element1 = document.getElementById('parent-count');
+
+const element2 = document.getElementById('child-count');
+
+let compte1 = 0;
+
+let compte2 = 0;
+
+element1.addEventListener('click', function() { 
+
+  compte1++;
+
+  element1.innerHTML = compte1;
+
+});
+
+element2.addEventListener('click', function() { 
+
+  compte2++;
+
+  element2.innerHTML = compte2;
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+const doc = document.getElementsByTagName('body');
+
+const element = document.getElementById('name');
+
+
+
+element.addEventListener('input',function() {
+
+ if(event.target.value!="") {element2.innerHTML=event.target.value;}
+
+else {alert('Please write something');}  
+
+});
+
+
+
+
+
+
+
+const element = document.getElementById('name');
+
+const element1 = document.getElementById('res-gender');
+
+document.addEventListener('DOMContentLoaded', function() {
+
+ document.querySelector('select[name="gender"]').onchange= fonctionChange;},false);
+
+;
+
+let fonctionChange = (event) => {
+
+if(!event.target.value) {alert('Please select one');}
+
+else {element1.innerHTML = event.target.value}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const element3 = document.getElementById('mouse-x'); 
+
+const element4 = document.getElementById('mouse-y');
+
+const element = document.getElementById('name');
+
+const element2 = document.getElementById('res-name');
+
+element.addEventListener('input',function() {
+
+ if(event.target.value!="") {element2.innerHTML=event.target.value;}
+
+else {alert('Please write something');} 
+
+});
+
+
+
+document.addEventListener('mousemove', function(event) {
+
+    element3.innerHTML = event.offsetX; // Coordonnée X de la souris dans l'élément
+
+    element4.innerHTML = event.offsetY; // Coordonnée Y de la souris dans l'élément
+
+});
+
+
+
+const element1 = document.getElementById('res-gender');
+
+document.addEventListener('DOMContentLoaded', function() {
+
+document.querySelector('select[name="gender"]').onchange=fonctionChange;},false);
+
+let fonctionChange = (event) => {
+
+if(!event.target.value) {alert('Please select one')}
+
+else {element1.innerHTML= event.target.value}
+
+}
+
+
+
+
+
+
+
+
+
+var askWeather = new XMLHttpRequest();
+
+askWeather.open("GET", "https://www.prevision-meteo.ch/services/json/paris");
+
+askWeather.send();
+
+const meteo = document.getElementById('weather-result');
+
+askWeather.onreadystatechange = function() {
+
+    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+
+        var response = JSON.parse(this.responseText);
+
+       meteo.innerHTML= response.current_condition.condition;
+
+    }
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var askWeather = new XMLHttpRequest();
+
+askWeather.open("GET", "https://www.prevision-meteo.ch/services/json/paris");
+
+askWeather.send();
+
+const meteo = document.getElementById('weather-result');
+
+let cond ="";
+
+const ask = document.getElementById('ask-weather');
+
+
+
+askWeather.onreadystatechange = function() {
+
+    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+
+        var response = JSON.parse(this.responseText);
+
+       cond= response.current_condition.condition;
+
+    }
+
+};
+
+
+
+ask.addEventListener('click', function() { // On écoute l'événement click
+
+    meteo.innerHTML = cond;               // On change le contenu de notre élément pour afficher "C'est cliqué !"
+
+});
+
+
+
