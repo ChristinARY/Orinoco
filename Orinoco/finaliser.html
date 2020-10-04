@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <!--<link rel="stylesheet" href="bootstrap.css" />-->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -69,6 +69,7 @@
     </div>
     <div class="container">
       <!---->
+      
       <div id="alertInactive">
         <div class="row">
           <div class="col">
@@ -111,7 +112,8 @@
                       <span
                         >Montant Total : <span id="montantTotal"></span>€</span
                       >
-                      <!--<br /><span
+                      <br />
+                      <!--<span
                         >aparait : <span id="verification"></span
                       ></span>-->
                     </div>
@@ -192,8 +194,10 @@
                   required
                 />
               </div>
-              <!--</div>
-            <div class="form-group mt-3">
+              <a id="validerCommande" href="#" class="btn btn-primary" >Envoyer</a>
+              <!--<button id="validerCommande" class="btn btn-primary">Envoyer</button>-->
+              </div>
+              <!--<div class="form-group mt-3">
               <label for="note"> :</label>
               <textarea
                 id="note"
@@ -203,15 +207,23 @@
               ></textarea>
             </div>-->
 
-              <!-- <button id="validerCommande" type="submit" class="btn btn-primary">
-              Envoyer
-            </button>-->
-              <a id="validerCommande" class="btn btn-primary" href="resume.html"
-                >Envoyer</a
+            <!--<button
+                id="validerCommande"
+                type="submit"
+                class="btn btn-primary"
               >
+                Envoyer
+              </button>
+              <a
+                id="validerCommande"
+                class="btn btn-primary"
+                href="resume.html "
+                >Envoyer</a
+              >-->
               <!--<button id="validerCommande" class="btn btn-primary">Envoyer</button>-->
+              <!--<button id="validerCommandes" href="resume.html">Envoyer</button>-->
             </fieldset>
-            <!--<form action="">
+            <!--<form action=""
             <fieldset class="finaliser2">
               <legend>
                 Entrer Vos coordonnées puis valider votre commande
@@ -241,6 +253,75 @@
           </div>
         </div>
       </form>
+
+      <div>
+        <!--<div id="alertInactive">
+          <div class="row">
+            <div class="col">
+              <div
+                class="alert alert-info alert-dismissible fade show mt-3"
+                role="alert"
+              >
+                <h5 class="alert-heading">Formulaire Vide</h5>
+                <p>
+                  Veuillez entrer vos Informations personnelles S'il vous plait
+                  !
+                </p>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h2>Résumé de votre commande</h2>
+            <p id="afficheCommande" class="card-text"></p>
+            <div class="col-12 col-lg-8" style="margin: auto">
+              <div class="card mb-4 mb-lg-0 border-light shadow-sm">
+                <div id="imgArticle" class="card-img-top"></div>
+                <div class="card-body">
+                  <span>Nombre Article : <span id="totalArticle"></span></span>
+                  <br />
+                  <span>Montant Total : <span id="montantTotal"></span>€</span>
+                  <br /><span>aparait : <span id="verification"></span></span>
+                </div>
+              </div>
+            </div>
+            <a id="monBoutton" href="#" class="btn btn-danger"
+              >Vider le Panier</a
+            >
+          </div>
+          <fieldset class="finaliser2">
+            <legend>Entrer Vos coordonnées puis valider votre commande</legend>
+            Titre du fieldset
+            <div class="listeInput">
+              <label for="prenom">Votre prénom ?</label>
+              <input type="text" name="prenom" id="lastName" />
+
+              <label for="nom">Votre nom ?</label>
+              <input type="text" name="nom" id="firstName" />
+
+              <label for="adresse">Votre adresse ?</label>
+              <input type="text" name="address" id="address" />
+
+              <label for="ville">Votre ville ?</label>
+              <input type="text" name="ville" id="city" />
+
+              <label for="email">Votre e-mail ?</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="bouton_bas">
+              <input id="validerCommande" type="submit" value="Valider" />
+            </div>
+          </fieldset>
+          <div></div>
+        </div>-->
+      </div>
     </div>
     <div class="bg-light mt-5">
       <div class="container">

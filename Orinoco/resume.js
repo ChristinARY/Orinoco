@@ -8,10 +8,10 @@ const afficheIdCommande = document.getElementById("afficheIdCommande");
 
 afficheRecapPrenom.innerHTML = JSON.parse(
   localStorage.getItem("recap")
-).contact.lastName;
+).contact.firstName;
 afficheRecapNom.innerHTML = JSON.parse(
   localStorage.getItem("recap")
-).contact.firstName;
+).contact.lastName;
 afficheRecapAdresse.innerHTML = JSON.parse(
   localStorage.getItem("recap")
 ).contact.address;
@@ -30,3 +30,5 @@ console.log(JSON.parse(localStorage.getItem("recap")).contact.email);
 console.log(JSON.parse(localStorage.getItem("recap")).orderId);
 let containedItems = [];
 console.log(JSON.parse(localStorage.getItem("recap")).products.length);
+localStorage.removeItem("listElements");
+localStorage.removeItem("recap");

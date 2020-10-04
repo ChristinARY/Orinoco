@@ -31,6 +31,17 @@
   display: none;
 }
 
+#validerCommandes {
+  font-size: 2em;
+  width: 8em;
+  color: red;
+  background-color: aquamarine;
+}
+
+#monBoutton {
+  color: white;
+}
+
 /*#alertActive {
   display: block;
 }*/

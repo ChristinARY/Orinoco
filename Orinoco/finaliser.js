@@ -1,3 +1,6 @@
+//const grisBouton = document.getElementById("validerCommandes");
+
+//grisBouton.disabled = true;
 const conteneur = document.createElement("div");
 const afficheCommande = document.getElementById("afficheCommande");
 afficheCommande.appendChild(conteneur);
@@ -10,6 +13,13 @@ const alertInactive = document.getElementById("alertInactive");
 //alertInactive.style.display = "none";
 const videPanier = document.getElementById("monBoutton");
 const validerCommande = document.getElementById("validerCommande");
+
+//const verifiInputlastName = document.getElementById("lastName");
+//const verifiInputfirstName = document.getElementById("firstName");
+//const verifiInputaddress = document.getElementById("address");
+//const verifiInputcity = document.getElementById("city");
+//const verifiInputemail = document.getElementById("email");
+
 let monElement = [];
 let monElement1 = [];
 //let elt = "€";
@@ -61,8 +71,75 @@ if (localStorage.getItem("listElements")) {
     montantTotal.textContent = "0";
   });
 }
-
+/*verifiInputlastName.addEventListener("mousedown", () => {
+  if (
+    lastName.value &&
+    firstName.value &&
+    address.value &&
+    city.value &&
+    email.value
+  ) {
+    grisBouton.disabled = false;
+  } else {
+    grisBouton.disabled = true;
+  }
+});
+verifiInputfirstName.addEventListener("mousedown", () => {
+  if (
+    lastName.value &&
+    firstName.value &&
+    address.value &&
+    city.value &&
+    email.value
+  ) {
+    grisBouton.disabled = false;
+  } else {
+    grisBouton.disabled = true;
+  }
+});
+verifiInputaddress.addEventListener("mousedown", () => {
+  if (
+    lastName.value &&
+    firstName.value &&
+    address.value &&
+    city.value &&
+    email.value
+  ) {
+    grisBouton.disabled = false;
+  } else {
+    grisBouton.disabled = true;
+  }
+});
+verifiInputcity.addEventListener("mousedown", () => {
+  if (
+    lastName.value &&
+    firstName.value &&
+    address.value &&
+    city.value &&
+    email.value
+  ) {
+    grisBouton.disabled = false;
+  } else {
+    grisBouton.disabled = true;
+  }
+});
+verifiInputemail.addEventListener("mousedown", () => {
+  if (
+    lastName.value &&
+    firstName.value &&
+    address.value &&
+    city.value &&
+    email.value
+  ) {
+    grisBouton.disabled = false;
+  } else {
+    grisBouton.disabled = true;
+  }
+});
+*/
 validerCommande.addEventListener("mousedown", () => {
+  //section.appendChild(link);
+  //validerCommande.appendChild(link);
   console.log("mon test");
   /*if (
     ((lastName.value = ""),
@@ -77,15 +154,24 @@ validerCommande.addEventListener("mousedown", () => {
     city.placeholder = "11";
     email.placeholder = "11";
   }*/
-  if (
+  /*if (
     !(lastName.value, firstName.value, address.value, city.value, email.value)
   ) {
     //verification.textContent = "formulaire Vide ceci est un test";
-
     //console.log(verification);
     //alertInactive.style.backgroundColor = "red";
+    //alertInactive.style.display = "block";
+  } else {
+    //grisBouton.disabled = false;
+    //validerCommande.disabled = false;
+  }*/
+
+  if (
+    !(lastName.value, firstName.value, address.value, city.value, email.value)
+  ) {
     alertInactive.style.display = "block";
   } else {
+    alertInactive.style.display = "none";
     let montableaudeproduits = [];
 
     for (
@@ -121,8 +207,12 @@ validerCommande.addEventListener("mousedown", () => {
         localStorage.setItem("recap", JSON.stringify(responsePost));
       });
     console.log("recap");
-    localStorage.removeItem("listElements");
-    localStorage.removeItem("recap");
+    //localStorage.removeItem("listElements");
+    //localStorage.removeItem("recap");
     //location.href = "resume.html";
+    //let link = document.createElement("a");
+    //link.href = "resume.html";
+    //validerCommande.appendChild = link;
+    validerCommande.href = "resume.html";
   }
 });
