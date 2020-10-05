@@ -1,5 +1,5 @@
 $color: #f3e9f1;
-
+$color1: #4f3454;
 $cd-txt: #6300a0;
 $cd-txt--invalid: #fff;
 $cd-danger: #b20a37;
@@ -10,7 +10,7 @@ $cd-danger: #b20a37;
   border-radius: 50%;
 }
 .entete {
-  background-color: #4f3454;
+  background-color: $color1;
 }
 .listeInput {
   display: flex;
@@ -35,6 +35,10 @@ $cd-danger: #b20a37;
 }
 #monBoutton {
   color: white;
+}
+#welcomDiv {
+  background-color: $color;
+  color: $color1;
 }
 /*#alertActive {
   display: block;

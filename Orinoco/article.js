@@ -59,8 +59,10 @@ const btnCommander = document.getElementById("monBoutton");
 const finaliser = document.getElementById("finaliser");
 const affichePanier = document.getElementsByClassName("panier");
 const nbArticle = document.getElementById("nbArticle");
-const selectionTaille = document.getElementById("selectionTaille");
-const selectionTaille1 = document.getElementById("selectionTaille1");
+//const selectionTaille = document.getElementById("selectionTaille");
+//const selectionTaille1 = document.getElementById("selectionTaille1");
+const optionTaille = document.getElementById("optionTaille");
+
 const qArticle = document.getElementById("qArticle");
 const alertInactive = document.getElementById("alertInactive");
 
@@ -71,17 +73,68 @@ if (localStorage.getItem("idElement")) {
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
-      selectionTaille.textContent = "ooolll";
+      //selectionTaille.textContent = "ooolll";
+      /*for (let u = 0; u < response.lenses.length; u++) {
+        let maSelection = document.createElement("option");
+        let maSelection1 = document.createElement("option");
+        let maSelection2 = document.createElement("option");
+        //let maSelection1 = document.createElement("span");
+        maSelection.textContent = response.lenses[0];
+        maSelection1.textContent = response.lenses[1];
+        maSelection2.textContent = response.lenses[u];
+        //maSelection1.textContent = response.lenses[2];
+        optionTaille.appendChild(maSelection);
+        optionTaille1.appendChild(maSelection1);
+        optionTaille1.appendChild(maSelection2);
+        //document.body.appendChild(maSelection1);
+        //selectionTaille.textContent = response.lenses[1];
+        //selectionTaille1.textContent = response.lenses[u];
+        optionTaille.textContent = response.lenses[u];
+      }*/
+
+      //Selection couleur
+      let tailleLentille = response.lenses;
       for (let u = 0; u < response.lenses.length; u++) {
-        let maSelection = document.createElement("span");
-        let maSelection1 = document.createElement("span");
-        maSelection.textContent = response.lenses[1];
-        maSelection1.textContent = response.lenses[2];
-        document.body.appendChild(maSelection);
-        document.body.appendChild(maSelection1);
-        selectionTaille.textContent = response.lenses[1];
-        selectionTaille1.textContent = response.lenses[u];
+        let contain = [];
+
+        for (let v = 0; v < Object.keys(response.lenses[u]).length; v++) {
+          contain[v] = document.createElement("option");
+          contain[v].textContent = tailleLentille[v];
+          //optionTaille.appendChild(document.createElement("br"));
+        }
+        optionTaille.appendChild(contain[u]);
       }
+
+      /*let taillesLentille = [response.lenses];
+      for (let taille of taillesLentille) {
+        let choixTaille = document.createElement("option");
+        choixTaille.textContent = taille;
+        optionTaille.appendChild(choixTaille);
+        optionTaille.appendChild(document.createElement("br"));
+      }*/
+
+      /*let item = [];
+      for (let u = 0; u < response.lenses.length; u++) {
+
+        item.push(document.createElement("option"));
+        let maSelection = [];
+        for (let v = 0; v < Object.keys(response.lenses[u]).length; v++) {
+          maSelection.push(
+            document.createElement(
+              (Object.keys(response.lenses[u])[v] = "option")
+            )
+          );
+          maSelection[v].textContent =
+            response.lenses[u][Object.keys(response.lenses[u])[v]];
+          item.appendChild = maSelection[v];
+          //optionTaille.appendChild(maSelection[u]);
+          //document.body.appendChild(maSelection1);
+          //selectionTaille.textContent = response.lenses[1];
+          //selectionTaille1.textContent = response.lenses[u];
+          //optionTaille.textContent = response.lenses[u][v];
+        }
+        optionTaille.appendChild = response.lenses[u];
+      }*/
       /*
     let monElement1 = [];
     monElement1.push(document.createElement("img"));
