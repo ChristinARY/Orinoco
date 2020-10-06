@@ -1,33 +1,0 @@
-https://jsfiddle.net/y9fh2b0w/ 
-De Etienne Rinckel à Tout le monde : (9:38 PM)
- for(let current in JSON.parse(localStorage.getItem("listeElements")).listeELements) monElement.push[current]; body{overflow:hidden) body{overflow:hidden;} 
-De Etienne Rinckel à Tout le monde : (9:49 PM)
- {contact:{fistname:"name",lastName:"nom",addresse:"ad",city:"c",email:"m"},products:{produit1:"pr",produit2:"a"}}
-
-
-
-
-https://jsfiddle.net/y9fh2b0w/ 
-De Etienne Rinckel à Tout le monde : (9:38 PM)
- for(let current in JSON.parse(localStorage.getItem("listeElements")).listeELements) monElement.push[current]; body{overflow:hidden) body{overflow:hidden;} 
-De Etienne Rinckel à Tout le monde : (9:49 PM)
- {contact:{fistname:"name",lastName:"nom",addresse:"ad",city:"c",email:"m"},products:{produit1:"pr",produit2:"a"}} https://github.com/etiennerin/MERN_jest_quickstart/blob/master/src/client/LoginMenu.jsx 
-
-
-https://github.com/etiennerin/MERN_jest_quickstart/blob/master/src/client/LoginMenu.jsx
-
-
-
-_onSubmit(e)
-	{
-		e.preventDefault();
-		let formular = JSON.stringify({"mail":this._mail.value,"pwd":this._pwd.value});
-		fetch("http://localhost:3000/login", {
-		  method: "POST",
-		  headers: {
-			'Content-Type': 'application/json'
-		  },
-		  body: formular
-		});
-	}
-    render(){

@@ -36,16 +36,17 @@ if (localStorage.getItem("listElements")) {
     i++
   ) {
     monElement1.push(document.createElement("span"));
-    monElement1[i].textContent = JSON.parse(
-      localStorage.getItem("listElements")
-    ).listeCommande[i].price;
+    monElement1[i].textContent =
+      JSON.parse(localStorage.getItem("listElements")).listeCommande[i].price /
+      100;
     monElement1[i].appendChild(document.createTextNode("€"));
     monElement.push(document.createElement("span"));
     monElement[i].textContent = JSON.parse(
       localStorage.getItem("listElements")
     ).listeCommande[i].name;
-    somme += JSON.parse(localStorage.getItem("listElements")).listeCommande[i]
-      .price;
+    somme +=
+      JSON.parse(localStorage.getItem("listElements")).listeCommande[i].price /
+      100;
     console.log(somme);
     console.log(monElement[i]);
     monElement[i].style.padding = "4em";

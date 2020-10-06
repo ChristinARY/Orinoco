@@ -22,12 +22,16 @@ fetch("http://localhost:3000/api/cameras")
 */
 
 console.log("hello!");
+const conteneur = document.createElement("div");
+
 const affichePanier = document.getElementsByClassName("panier");
 const nbArticle = document.getElementById("nbArticle");
 const afficheImages = document.getElementById("element");
 const afficheImage = document.getElementById("imgArticle");
+afficheImage.appendChild(conteneur);
 const afficheNom = document.getElementById("nomImage");
 const clicImage = document.getElementById("blocArticles");
+const NomArticle = document.getElementById("NomArticle");
 fetch("http://localhost:3000/api/cameras")
   .then((response) => response.json())
   .then((response) => {
@@ -63,7 +67,7 @@ fetch("http://localhost:3000/api/cameras")
       console.log(localStorage);
     }*/
 
-    let item = [];
+    /*let item = [];
 
     for (let i = 0; i < response.length; i++) {
       item.push(document.createElement("div"));
@@ -95,9 +99,57 @@ fetch("http://localhost:3000/api/cameras")
             response[i][Object.keys(response[i])[j]];
         item[i].appendChild(containedItems[j]);
         containedItems[j].style.width = "100%";
+        containedItems[j].price / 100;
+      }
+      containedItems[i].price / 100;
+      //afficheImage.appendChild(document.createTextNode("€"));
+      //afficheImage.appendChild(item[i]);
+      conteneur.appendChild(item[i]);
+    }*/
+
+    //prixArticle.textContent = response.price / 100;
+    //prixArticle.appendChild(document.createTextNode("€"));
+    let item = [];
+
+    for (let i = 0; i < response.length; i++) {
+      item.push(document.createElement("div"));
+      //item[i].id = "element";
+      //item[i].style.display = "flex";
+      //item[i].style.width = "50%";
+
+      //item[i].style.fontSize = "2px";
+      //item[i].style.flexDirection = "column";
+      item[i].addEventListener("click", () => {
+        localStorage.setItem("idElement", response[i]._id);
+        location.href = "article.html";
+        console.log(idElement);
+      });
+
+      let containedItems = [];
+
+      for (let j = 0; j < Object.keys(response[i]).length - 2; j++) {
+        containedItems.push(
+          document.createElement(
+            Object.keys(response[i])[j + 2] === "imageUrl" ? "img" : "p"
+          )
+        );
+
+        if (Object.keys(response[i])[j + 2] === "imageUrl")
+          containedItems[j].src = response[i][Object.keys(response[i])[j + 2]];
+        else
+          containedItems[j].textContent =
+            response[i][Object.keys(response[i])[j + 2]];
+        item[i].appendChild(containedItems[j]);
+        containedItems[j].style.width = "100%";
+        //containedItems[j].price / 100;
       }
 
-      afficheImage.appendChild(item[i]);
+      //afficheImage.appendChild(document.createTextNode("€"));
+      //afficheImage.appendChild(item[i]);
+
+      conteneur.appendChild(item[i]);
+      conteneur.appendChild(document.createElement("br"));
+      //conteneur.style.padding = "2em";
     }
     if (localStorage.getItem("listElements")) {
       nbArticle.textContent = JSON.parse(

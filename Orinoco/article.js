@@ -59,11 +59,13 @@ const btnCommander = document.getElementById("monBoutton");
 const finaliser = document.getElementById("finaliser");
 const affichePanier = document.getElementsByClassName("panier");
 const nbArticle = document.getElementById("nbArticle");
+const NomArticle = document.getElementById("NomArticle");
 //const selectionTaille = document.getElementById("selectionTaille");
 //const selectionTaille1 = document.getElementById("selectionTaille1");
 const optionTaille = document.getElementById("optionTaille");
 
 const qArticle = document.getElementById("qArticle");
+const prixArticle = document.getElementById("prixArticle");
 const alertInactive = document.getElementById("alertInactive");
 
 if (localStorage.getItem("idElement")) {
@@ -104,7 +106,9 @@ if (localStorage.getItem("idElement")) {
         }
         optionTaille.appendChild(contain[u]);
       }
-
+      NomArticle.textContent = response.name;
+      prixArticle.textContent = response.price / 100;
+      prixArticle.appendChild(document.createTextNode("€"));
       /*let taillesLentille = [response.lenses];
       for (let taille of taillesLentille) {
         let choixTaille = document.createElement("option");
@@ -147,17 +151,17 @@ if (localStorage.getItem("idElement")) {
       //clicImage.textContent = "abcd";
       let containedItems = [];
 
-      for (let j = 0; j < Object.keys(response).length - 1; j++) {
+      for (let j = 0; j < Object.keys(response).length - 5; j++) {
         containedItems.push(
           document.createElement(
-            Object.keys(response)[j + 1] === "imageUrl" ? "img" : "p"
+            Object.keys(response)[j + 5] === "imageUrl" ? "img" : "p"
           )
         );
-        if (Object.keys(response)[j + 1] === "imageUrl") {
-          containedItems[j].src = response[Object.keys(response)[j + 1]];
+        if (Object.keys(response)[j + 5] === "imageUrl") {
+          containedItems[j].src = response[Object.keys(response)[j + 5]];
         } else {
           containedItems[j].textContent =
-            response[Object.keys(response)[j + 1]];
+            response[Object.keys(response)[j + 5]];
         }
         containedItems[j].style.width = "100%";
         afficheImage.appendChild(containedItems[j]);
